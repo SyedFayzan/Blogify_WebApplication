@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About | Blogify</title>
+    <%- include("partials/head") %>
+</head>
+
+<body class="bg-light">
+
+<%- include("partials/navbar") %>
+
+
+<!-- Hero Section -->
+<section class="bg-dark text-white py-5">
+    <div class="container text-center">
+
+        <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+            Full Stack Technology Platform
+        </span>
+
+        <h1 class="display-3 fw-bold">
+            About <span class="text-warning">Blogify</span>
+        </h1>
+
+        <p class="lead mt-4 mx-auto col-lg-8 text-secondary">
+            Blogify is a modern technology blogging platform where developers
+            can share knowledge, publish technical articles, and learn from
+            the developer community.
+        </p>
+
+    </div>
+</section>
+
+
+
+<!-- Statistics -->
+
+<section class="py-5 bg-white">
+
+<div class="container">
+
+<div class="row text-center g-4">
+
+<div class="col-md-3">
+<div class="p-4 shadow-sm rounded-4">
+
+<i class="bi bi-code-slash fs-1 text-warning"></i>
+
+<h2 class="fw-bold mt-3">
+10+
+</h2>
+
+<p class="text-muted mb-0">
+Technologies Used
+</p>
+
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="p-4 shadow-sm rounded-4">
+
+<i class="bi bi-shield-lock fs-1 text-warning"></i>
+
+<h2 class="fw-bold mt-3">
+JWT
+</h2>
+
+<p class="text-muted mb-0">
+Secure Authentication
+</p>
+
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="p-4 shadow-sm rounded-4">
+
+<i class="bi bi-database fs-1 text-warning"></i>
+
+<h2 class="fw-bold mt-3">
+MongoDB
+</h2>
+
+<p class="text-muted mb-0">
+Database Management
+</p>
+
+</div>
+</div>
+
+
+<div class="col-md-3">
+<div class="p-4 shadow-sm rounded-4">
+
+<i class="bi bi-layout-text-window fs-1 text-warning"></i>
+
+<h2 class="fw-bold mt-3">
+CRUD
+</h2>
+
+<p class="text-muted mb-0">
+Blog Operations
+</p>
+
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- About Project -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="card border-0 shadow rounded-4">
+
+<div class="card-body p-5">
+
+<h2 class="fw-bold border-start border-5 border-warning ps-3">
+About The Project
+</h2>
+
+
+<p class="text-muted fs-5 mt-4">
+Blogify is a full-stack web application developed to provide a platform
+for developers to write and share technical blogs. The application focuses
+on secure authentication, content management, image uploading, and user
+interaction.
+</p>
+
+
+<p class="text-muted fs-5">
+The project demonstrates backend development concepts including
+Express.js routing, MongoDB database operations, JWT authentication,
+password hashing, authorization, and file handling using Multer.
+</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- Developer Section -->
+
+
+<section class="py-5 bg-white">
+
+<div class="container">
+
+<div class="card border-0 shadow rounded-4">
+
+<div class="card-body p-5">
+
+
+<h2 class="fw-bold border-start border-5 border-warning ps-3">
+About The Developer
+</h2>
+
+
+<h3 class="fw-bold mt-4">
+Syed Fayzan
+</h3>
+
+
+<p class="text-muted fs-5">
+Computer Science Engineering student passionate about Full Stack Web
+Development and Backend Engineering. Interested in building scalable,
+secure, and user-friendly applications using modern technologies.
+</p>
+
+
+<p class="text-muted fs-5">
+Blogify was developed to strengthen practical knowledge in backend
+development, database management, authentication systems, and real-world
+application architecture.
+</p>
+
+
+<div class="mt-4">
+
+<a href="mailto:sdfayzan8@gmail.com"
+class="btn btn-dark rounded-pill px-4 me-2">
+
+<i class="bi bi-envelope"></i>
+Email
+
+</a>
+
+
+<a href="https://www.linkedin.com/in/syed-fayzan-040a48310/"
+target="_blank"
+class="btn btn-primary rounded-pill px-4">
+
+<i class="bi bi-linkedin"></i>
+LinkedIn
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- Technology Stack -->
+
+
+<section class="py-5">
+
+
+<div class="container">
+
+
+<h2 class="text-center fw-bold mb-5">
+Technology Stack
+</h2>
+
+
+<div class="row g-4">
+
+
+<% 
+const technologies=[
+"Node.js",
+"Express.js",
+"MongoDB",
+"Mongoose",
+"EJS",
+"Bootstrap",
+"JWT",
+"bcrypt",
+"Multer"
+]
+%>
+
+
+<% technologies.forEach(tech=>{ %>
+
+
+<div class="col-md-4 col-lg-3">
+
+
+<div class="card border-0 shadow-sm rounded-4 text-center p-4">
+
+
+<i class="bi bi-check-circle-fill text-warning fs-2"></i>
+
+
+<h5 class="fw-bold mt-3 mb-0">
+<%= tech %>
+</h5>
+
+
+</div>
+
+
+</div>
+
+
+<% }) %>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- Features -->
+
+
+<section class="py-5 bg-dark text-white">
+
+
+<div class="container">
+
+
+<h2 class="text-center fw-bold mb-5">
+Key Features
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+<div class="text-center">
+
+<i class="bi bi-person-lock fs-1 text-warning"></i>
+
+<h5 class="mt-3">
+Authentication
+</h5>
+
+<p class="text-secondary">
+Secure login and signup using JWT.
+</p>
+
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+<div class="text-center">
+
+<i class="bi bi-pencil-square fs-1 text-warning"></i>
+
+<h5 class="mt-3">
+Blog Management
+</h5>
+
+<p class="text-secondary">
+Create, edit and delete articles.
+</p>
+
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+<div class="text-center">
+
+<i class="bi bi-chat-left-text fs-1 text-warning"></i>
+
+<h5 class="mt-3">
+Comments
+</h5>
+
+<p class="text-secondary">
+Interact with published blogs.
+</p>
+
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<%- include("partials/footer") %>
+
+
+</body>
+</html>

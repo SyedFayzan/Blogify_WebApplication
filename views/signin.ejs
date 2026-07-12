@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blogify | Sign In</title>
+    <%- include("partials/head") %>
+  </head>
+
+  <body class="bg-light">
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-5" style="max-width: 500px">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Sign In</h2>
+<% if (error) { %>
+<div
+  class="alert alert-danger alert-dismissible fade show d-flex align-items-center mb-4"
+  role="alert"
+>
+  <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+  <div>
+    <strong>Login Failed!</strong><br>
+    <%= error %>
+  </div>
+
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>
+          <form action="/user/signin" method="POST">
+            <div class="mb-3">
+              <label class="form-label"> Email </label>
+
+              <input type="email" class="form-control" name="email" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label"> Password </label>
+
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                required
+              />
+            </div>
+
+            <button class="btn btn-dark w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include("partials/footer") %>
+  </body>
+</html>

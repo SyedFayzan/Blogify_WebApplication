@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Blogify | Home</title>
+  <%- include("partials/head") %>
+</head>
+
+
+<body class="bg-light">
+
+
+<%- include("partials/navbar") %>
+
+
+
+<!-- Hero Section -->
+
+<section class="py-5 bg-dark text-white">
+
+  <div class="container">
+
+    <div class="row align-items-center">
+
+
+      <div class="col-lg-6">
+
+
+        <h1 class="display-4 fw-bold">
+          The Developer's Knowledge Hub
+        </h1>
+
+
+        <p class="lead mt-4">
+          Explore articles on Node.js, JavaScript, React, MongoDB,
+          System Design, AI, and Backend Development.
+          Share your knowledge with developers around the world.
+        </p>
+
+
+
+        <div class="mt-4">
+
+
+          <a href="/blogs" class="btn btn-warning btn-lg me-3">
+            Explore Articles
+          </a>
+
+
+
+          <% if(user){ %>
+
+
+          <a href="/blog/add" class="btn btn-outline-light btn-lg">
+            Start Writing
+          </a>
+
+
+          <% } else { %>
+
+
+          <a href="/signin" class="btn btn-outline-light btn-lg">
+            Start Writing
+          </a>
+
+
+          <% } %>
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="col-lg-6 text-center mt-5 mt-lg-0">
+
+
+        <img
+        src="/images/hero-tech.png"
+        class="img-fluid rounded-4 shadow-lg"
+        alt="Developer Workspace"
+        style="max-height:500px; object-fit:cover;"
+        >
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+
+
+
+<!-- Latest Blogs -->
+
+
+<section class="container py-5">
+
+
+<h2 class="text-center fw-bold mb-5">
+  Latest Blogs
+</h2>
+
+
+
+<div class="row">
+
+
+
+<% if(blogs.length === 0){ %>
+
+
+<div class="alert alert-info text-center">
+
+No blogs available yet.
+
+</div>
+
+
+<% } %>
+
+
+
+
+
+<% blogs.forEach((blog)=>{ %>
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card shadow border-0 rounded-4 h-100">
+
+
+
+<img
+src="<%= blog.coverImageURL %>"
+class="card-img-top"
+alt="<%= blog.title %>"
+style="height:220px;object-fit:cover;"
+>
+
+
+
+
+<div class="card-body d-flex flex-column">
+
+
+
+<span class="badge bg-warning text-dark mb-3 align-self-start">
+
+<%= blog.category %>
+
+</span>
+
+
+
+
+<h4 class="fw-bold">
+
+<%= blog.title %>
+
+</h4>
+
+
+
+
+<p class="text-muted">
+
+By <%= blog.createdBy.name %>
+
+</p>
+
+
+
+
+<p>
+
+<%= blog.body.substring(0,100) %>...
+
+</p>
+
+
+
+
+<a 
+href="/blog/<%= blog._id %>"
+class="btn btn-dark mt-auto">
+
+Read More
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<% }) %>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Why Blogify -->
+
+
+<section class="py-5 bg-white">
+
+
+<div class="container">
+
+
+<h2 class="text-center fw-bold mb-5">
+Why Developers Love Blogify
+</h2>
+
+
+
+
+<div class="row text-center">
+
+
+
+<div class="col-md-4">
+
+<i class="bi bi-pencil-square display-4 text-primary"></i>
+
+
+<h4 class="mt-3">
+Developer Friendly
+</h4>
+
+
+<p class="text-muted">
+Write beautifully formatted technical articles with code snippets and markdown support.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<i class="bi bi-globe display-4 text-success"></i>
+
+
+<h4 class="mt-3">
+Reach Everyone
+</h4>
+
+
+<p class="text-muted">
+Share your knowledge with developers across the world.
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<i class="bi bi-shield-check display-4 text-danger"></i>
+
+
+<h4 class="mt-3">
+Secure Platform
+</h4>
+
+
+<p class="text-muted">
+Authentication and authorization keep your account safe.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<%- include("partials/footer") %>
+
+
+</body>
+
+</html>

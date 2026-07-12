@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>
+Profile | Blogify
+</title>
+
+<%- include("partials/head") %>
+
+</head>
+
+
+<body class="bg-light">
+
+
+<%- include("partials/navbar") %>
+
+
+
+<div class="container py-5">
+
+
+<!-- Profile Header -->
+
+<div class="card shadow border-0 rounded-4 mb-5">
+
+
+<div class="card-body p-5 text-center">
+
+
+<i class="bi bi-person-circle display-1 text-warning"></i>
+
+
+<h2 class="fw-bold mt-3">
+
+<%= user.name %>
+
+</h2>
+
+
+<p class="text-muted">
+
+<%= user.email %>
+
+</p>
+
+
+<p class="text-muted">
+
+Joined:
+<%= user.createdAt.toDateString() %>
+
+</p>
+
+
+<span class="badge bg-dark px-4 py-2">
+
+<%= blogs.length %>
+
+Blogs Published
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- My Blogs -->
+
+
+<h2 class="fw-bold mb-4">
+
+My Articles
+
+</h2>
+
+
+
+<div class="row">
+
+
+<% if(blogs.length === 0){ %>
+
+
+<div class="alert alert-info">
+
+You haven't published any blogs yet.
+
+</div>
+
+
+<% } %>
+
+
+
+
+
+<% blogs.forEach(blog=>{ %>
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card shadow border-0 rounded-4 h-100">
+
+
+<img 
+src="<%= blog.coverImageURL %>"
+class="card-img-top"
+style="height:220px;object-fit:cover;"
+>
+
+
+<div class="card-body">
+
+
+<h5 class="fw-bold">
+
+<%= blog.title %>
+
+</h5>
+
+
+<p class="text-muted">
+
+<%= blog.body.substring(0,100) %>...
+
+</p>
+
+
+
+<a href="/blog/<%= blog._id %>"
+class="btn btn-dark">
+
+View Blog
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<% }) %>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<%- include("partials/footer") %>
+
+
+</body>
+
+</html>

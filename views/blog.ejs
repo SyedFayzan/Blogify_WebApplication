@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= blog.title %> | Blogify</title>
+    <%- include("partials/head") %>
+  </head>
+
+  <body class="bg-light">
+
+  <%- include("partials/navbar") %>
+
+  <div class="container py-5">
+
+    <!-- Blog -->
+    <div class="card border-0 shadow rounded-4 overflow-hidden">
+
+      <img
+        src="<%= blog.coverImageURL %>"
+        class="card-img-top"
+        style="max-height:500px; object-fit:cover;"
+        alt="<%= blog.title %>"
+      >
+
+      <div class="card-body p-5">
+
+        <h1 class="fw-bold mb-3">
+          <%= blog.title %>
+        </h1>
+
+        <div class="d-flex justify-content-between align-items-center">
+
+          <div>
+            <h5 class="mb-1">
+              <i class="bi bi-person-circle"></i>
+              <%= blog.createdBy.name %>
+            </h5>
+
+            <small class="text-muted">
+              Published on <%= blog.createdAt.toDateString() %>
+            </small>
+          </div>
+
+          <% if (user && blog.createdBy._id.toString() === user._id) { %>
+
+          <div>
+
+            <a
+              href="/blog/edit/<%= blog._id %>"
+              class="btn btn-warning btn-sm"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Edit
+            </a>
+
+            <form
+              action="/blog/delete/<%= blog._id %>"
+              method="POST"
+              class="d-inline"
+            >
+
+              <button class="btn btn-danger btn-sm">
+                <i class="bi bi-trash"></i>
+                Delete
+              </button>
+
+            </form>
+
+          </div>
+
+          <% } %>
+
+        </div>
+
+        <hr>
+
+        <div class="fs-5 lh-lg">
+          <%= blog.body %>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Comment Form -->
+
+    <div class="card shadow-sm border-0 rounded-4 mt-5">
+
+      <div class="card-body">
+
+        <h3 class="mb-4">
+          Leave a Comment
+        </h3>
+
+        <% if(user){ %>
+
+        <form
+          action="/blog/<%= blog._id %>/comment"
+          method="POST"
+        >
+
+          <textarea
+            name="content"
+            rows="4"
+            class="form-control mb-3"
+            placeholder="Share your thoughts..."
+            required
+          ></textarea>
+
+          <button class="btn btn-warning">
+            Post Comment
+          </button>
+
+        </form>
+
+        <% } else { %>
+
+        <div class="alert alert-info mb-0">
+
+          Please
+          <a href="/signin">Sign In</a>
+          to comment.
+
+        </div>
+
+        <% } %>
+
+      </div>
+
+    </div>
+
+    <!-- Comments -->
+
+    <div class="mt-5">
+
+      <h3 class="mb-4">
+        Comments (<%= comments.length %>)
+      </h3>
+
+      <% if(comments.length === 0){ %>
+
+      <div class="alert alert-secondary">
+
+        No comments yet.
+        Be the first to share your thoughts!
+
+      </div>
+
+      <% } %>
+
+      <% comments.forEach(comment => { %>
+
+      <div class="card shadow-sm border-0 mb-3">
+
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between">
+
+            <strong>
+
+              <i class="bi bi-person-circle"></i>
+
+              <%= comment.createdBy.name %>
+
+            </strong>
+
+            <small class="text-muted">
+              <%= comment.createdAt.toDateString() %>
+            </small>
+
+          </div>
+
+          <hr>
+
+          <p class="mb-0">
+            <%= comment.content %>
+          </p>
+
+        </div>
+
+      </div>
+
+      <% }) %>
+
+    </div>
+
+    <div class="mt-4">
+
+      <a href="/" class="btn btn-outline-dark">
+
+        ← Back to Home
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <%- include("partials/footer") %>
+
+</body>
+</html>

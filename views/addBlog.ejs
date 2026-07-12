@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blogify | Add Blog</title>
+    <%- include("partials/head") %>
+  </head>
+
+  <body class="bg-light">
+    <%- include("partials/navbar") %>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="card border-0 shadow-lg rounded-4">
+            <div class="card-body p-5">
+              <div class="text-center mb-5">
+                <i class="bi bi-code-slash display-4 text-warning"></i>
+
+                <h2 class="fw-bold mt-3">Publish a New Tech Article</h2>
+
+                <p class="text-muted">
+                  Share your programming knowledge with developers worldwide.
+                </p>
+              </div>
+
+              <form action="/blog" method="POST" enctype="multipart/form-data">
+                <!-- Title -->
+                <div class="mb-4">
+                  <label class="form-label fw-semibold"> Article Title </label>
+
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control form-control-lg"
+                    placeholder="Example: Understanding JWT Authentication"
+                    required
+                  />
+                </div>
+                <!-- Category -->
+
+                <div class="mb-4">
+                  <label class="form-label fw-semibold">
+                    Article Category
+                  </label>
+
+                  <select
+                    name="category"
+                    class="form-select form-select-lg"
+                    required
+                  >
+                    <option value="">Select Category</option>
+
+                    <option value="JavaScript">JavaScript</option>
+
+                    <option value="Node.js">Node.js</option>
+
+                    <option value="React">React</option>
+
+                    <option value="MongoDB">MongoDB</option>
+
+                    <option value="AI">Artificial Intelligence</option>
+
+                    <option value="DSA">Data Structures & Algorithms</option>
+
+                    <option value="Web Development">Web Development</option>
+                  </select>
+                </div>
+                <!-- Cover Image -->
+                <div class="mb-4">
+                  <label class="form-label fw-semibold"> Cover Image </label>
+
+                  <input
+                    type="file"
+                    name="coverImage"
+                    class="form-control"
+                    accept="image/*"
+                    required
+                  />
+
+                  <div class="form-text">
+                    Upload a clear image related to your article.
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="mb-4">
+                  <label class="form-label fw-semibold">
+                    Article Content
+                  </label>
+
+                  <textarea
+                    name="body"
+                    rows="14"
+                    class="form-control"
+                    placeholder="Write your article here..."
+                    required
+                  ></textarea>
+
+                  <div class="form-text">
+                    Explain concepts clearly and use examples whenever possible.
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-between">
+                  <a href="/" class="btn btn-outline-secondary px-4">
+                    Cancel
+                  </a>
+
+                  <button
+                    type="submit"
+                    class="btn btn-warning px-5 fw-semibold"
+                  >
+                    <i class="bi bi-upload me-2"></i>
+                    Publish Article
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("partials/footer") %>
+  </body>
+</html>
