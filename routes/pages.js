@@ -1,0 +1,20 @@
+const express = require("express");
+
+const router = express.Router();
+
+const {
+    homePage,
+    aboutPage,
+} = require("../controllers/pageController");
+
+router.get(
+    "/",
+    homePage
+);
+
+router.get(
+    "/about",
+    aboutPage
+);
+
+module.exports = router;

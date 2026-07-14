@@ -10,7 +10,6 @@ function createTokenForUser(user) {
     email: user.email,
     role: user.role,
   };
-console.log(process.env.JWT_SECRET);
   const token = jwt.sign(payload, secret, {
     expiresIn: "1d",
   });
